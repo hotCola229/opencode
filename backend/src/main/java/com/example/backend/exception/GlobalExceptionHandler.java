@@ -76,6 +76,13 @@ public class GlobalExceptionHandler {
         return Result.fail(ex.getCode(), ex.getMessage());
     }
 
+    @ExceptionHandler(RateLimitException.class)
+    @ResponseStatus(HttpStatus.TOO_MANY_REQUESTS)
+    public Result<?> handleRateLimitException(RateLimitException ex) {
+        log.warn("请求频率超过限制: {}", ex.getMessage());
+        return Result.fail(ErrorCode.RATE_LIMIT_EXCEEDED.getCode(), ex.getMessage());
+    }
+
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Result<?> handleNoHandlerFoundException(NoHandlerFoundException ex) {

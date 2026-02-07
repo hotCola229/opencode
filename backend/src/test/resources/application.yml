@@ -37,3 +37,20 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+
+third-party:
+  base-url: http://localhost:8089/
+  app-key: 28dc15bb-2e2c-45e4-b435-525853f69173
+  app-secret: 0e27fdf2820802cdea8e0eb22b695c93
+  http:
+    connection-timeout: 5000
+    read-timeout: 10000
+    retry:
+      max-attempts: 3
+      initial-delay: 100
+      multiplier: 1.0
+      max-delay: 1000
+  rate-limit:
+    capacity: 1000
+    refill-tokens: 1000
+    refill-duration-seconds: 1

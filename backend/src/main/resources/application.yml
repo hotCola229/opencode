@@ -39,3 +39,20 @@ mybatis-plus:
       logic-not-delete-value: 0
       insert-strategy: not_null
       update-strategy: not_null
+
+third-party:
+  base-url: http://172.20.4.32:18022/
+  app-key: 28dc15bb-2e2c-45e4-b435-525853f69173
+  app-secret: 0e27fdf2820802cdea8e0eb22b695c93
+  http:
+    connection-timeout: 5000
+    read-timeout: 10000
+    retry:
+      max-attempts: 3
+      initial-delay: 1000
+      multiplier: 2.0
+      max-delay: 10000
+  rate-limit:
+    capacity: 10
+    refill-tokens: 10
+    refill-duration-seconds: 1
